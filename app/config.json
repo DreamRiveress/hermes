@@ -1,0 +1,19 @@
+{
+	"run_type": "tunclient",
+	"enable_interface_bind": true,
+	"password": ["demo"],
+	"ssl": {
+		"sni": "example.com"
+	},
+	"foliv": {
+		"enabled": true
+	},
+	"router": {
+		"enabled": true
+	},
+	"dns": {
+		"enabled": true,
+		"default_policy": "fakeip",
+		"fakeip_range": "198.18.0.1/16"
+	}
+}

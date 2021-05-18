@@ -1,0 +1,20 @@
+{
+	"source": {
+		"name": "source-name",
+		"source_addr": "example.com",
+		"source_port": 443
+	},
+	"router": {
+		"name": "router-name",
+		"default_policy": "bypass",
+		"proxy": [
+			"process:.*Teams.*",
+			"process:.*Chrome.*"
+		]
+	},
+	"geo": {
+		"enabled": true,
+		"geosite": "geosite.dat",
+		"geoip": "geoip.dat"
+	}
+}
