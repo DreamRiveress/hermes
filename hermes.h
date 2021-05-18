@@ -68,18 +68,18 @@ typedef struct { void *data; GoInt len; GoInt cap; } GoSlice;
 extern "C" {
 #endif
 
-extern GoInt setMaxFiles(GoInt maxFiles);
-extern GoInt hermesStart(char* configJson, char* dynamicConfigJson);
-extern GoInt hermesStartWithConfigFile(char* configPath, char* dynamicConfigPath);
-extern GoInt hermesStop();
-extern char* hermesVersion();
-extern char* hermesProcessTraffic();
-extern char* hermesRouterTraffic();
-extern GoInt routeAddWithDefaultGateway();
-extern GoInt routeAddWithGateway(char* gateway);
-extern GoInt setDnsConfig();
-extern GoInt setDnsConfigWithNameServer(char* nameServer);
-extern GoInt restoreDnsConfig();
+extern GoInt hermes_set_max_files(GoInt max_files);
+extern GoInt hermes_start(char* config_json, char* dynamic_config_json);
+extern GoInt hermes_start_with_config_file(char* config_path, char* dynamic_config_path);
+extern GoInt hermes_stop();
+extern char* hermes_version();
+extern char* hermes_process_traffic();
+extern char* hermes_router_traffic();
+extern GoInt hermes_route_add_with_default_gateway();
+extern GoInt hermes_route_add_with_gateway(char* gateway);
+extern GoInt hermes_set_dns_config();
+extern GoInt hermes_set_dns_config_with_nameserver(char* nameserver);
+extern GoInt hermes_restore_dns_config();
 
 #ifdef __cplusplus
 }

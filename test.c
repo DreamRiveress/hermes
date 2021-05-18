@@ -1,36 +1,36 @@
+// gcc -o test test.c hermes.a -framework Foundation -framework AppKit -framework Security
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include "hermes.h"
-// gcc -o test test.c hermes.a -framework Foundation -framework AppKit -framework Security
 int main()
 {
-	if (hermesStartWithConfigFile("config.json", "dynamic-config.json") != 0) {
+	if (hermes_start_with_config_file("config.json", "dynamic-config.json") != 0) {
 		return -1;
 	}
-	if (setDnsConfig() != 0) {
+	if (hermes_set_dns_config() != 0) {
 		return -1;
 	}
 	sleep(3);
-	if (routeAddWithDefaultGateway() != 0) {
+	if (hermes_route_add_with_default_gateway() != 0) {
 		return -1;
 	}
-	char *processTrafficBytes, *routerTrafficBytes;
+	char *process_traffic_bytes, *router_traffic_bytes;
 	while (1) {
-		//processTraffic
-		processTrafficBytes = hermesProcessTraffic();
-		printf("processTraffic: %s\n", processTrafficBytes);
-		free(processTrafficBytes);
-		//routerTraffic
-		routerTrafficBytes = hermesRouterTraffic();
-		printf("routerTraffic: %s\n", routerTrafficBytes);
-		free(routerTrafficBytes);
+		//process_traffic
+		process_traffic_bytes = hermes_process_traffic();
+		printf("hermes_process_traffic: %s\n", process_traffic_bytes);
+		free(process_traffic_bytes);
+		//router_traffic
+		router_traffic_bytes = hermes_router_traffic();
+		printf("hermes_router_traffic: %s\n", router_traffic_bytes);
+		free(router_traffic_bytes);
 		sleep(1);
 	}
-	if (hermesStop() != 0) {
+	if (hermes_stop() != 0) {
 		return -1;
 	}
-	if (restoreDnsConfig() != 0) {
+	if (hermes_restore_dns_config() != 0) {
 		return -1;
 	}
 	return 0;
