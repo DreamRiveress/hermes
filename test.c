@@ -5,7 +5,7 @@
 // gcc -o test test.c hermes.a -framework Foundation -framework AppKit -framework Security
 int main()
 {
-	if (startWithConfigFile("config.json", "dynamic-config.json") != 0) {
+	if (hermesStartWithConfigFile("config.json", "dynamic-config.json") != 0) {
 		return -1;
 	}
 	if (setDnsConfig() != 0) {
@@ -18,16 +18,16 @@ int main()
 	char *processTrafficBytes, *routerTrafficBytes;
 	while (1) {
 		//processTraffic
-		processTrafficBytes = processTraffic();
+		processTrafficBytes = hermesProcessTraffic();
 		printf("processTraffic: %s\n", processTrafficBytes);
 		free(processTrafficBytes);
 		//routerTraffic
-		routerTrafficBytes = routerTraffic();
+		routerTrafficBytes = hermesRouterTraffic();
 		printf("routerTraffic: %s\n", routerTrafficBytes);
 		free(routerTrafficBytes);
 		sleep(1);
 	}
-	if (stop() != 0) {
+	if (hermesStop() != 0) {
 		return -1;
 	}
 	if (restoreDnsConfig() != 0) {

@@ -69,12 +69,12 @@ extern "C" {
 #endif
 
 extern GoInt setMaxFiles(GoInt maxFiles);
-extern GoInt start(char* configJson, char* dynamicConfigJson);
-extern GoInt startWithConfigFile(char* configPath, char* dynamicConfigPath);
-extern GoInt stop();
-extern char* version();
-extern char* processTraffic();
-extern char* routerTraffic();
+extern GoInt hermesStart(char* configJson, char* dynamicConfigJson);
+extern GoInt hermesStartWithConfigFile(char* configPath, char* dynamicConfigPath);
+extern GoInt hermesStop();
+extern char* hermesVersion();
+extern char* hermesProcessTraffic();
+extern char* hermesRouterTraffic();
 extern GoInt routeAddWithDefaultGateway();
 extern GoInt routeAddWithGateway(char* gateway);
 extern GoInt setDnsConfig();
